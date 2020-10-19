@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax Example</title>
+</head>
+
+<body>
+
+<div id="mydiv"></div>
+
+<div id="clickdiv" onClick="getmyinfo()">Click Me!</div>
+
+
+<script>
+
+var aboutme = '{"name":"Trent Ross", "street": "1254 S. 400 W."}';
+
+
+function getmyinfo() { 
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200){
+			var obj = JSON.parse(xhttp.responseText);
+			document.getElementById("mydiv").innerHTML = obj.weather[0].description;
+
+			
+		}
+	}
+	
+	xhttp.open("GET", "myajax.json", true);
+	xhttp.send();
+}
+
+function jsonpractice() {
+	
+	document.getElementById("mydiv").innerHTML = obj.price;
+}
+
+</script>
+
+
+</body>
+</html>
