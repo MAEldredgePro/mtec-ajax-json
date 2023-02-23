@@ -1,8 +1,10 @@
-var appId = '<account_api_id_here>'
-var weatherApiUrl = 'http://api.openweathermap.org/data/2.5/weather?q=Chicago&appid=' + appId;
 
-$( document ).ready(function() {
-  console.log( "ready!" );
+var appId = '8e4c540fa9e3a264c17ba271fce209bb';
+var weatherApiUrl = 'http://api.openweathermap.org/data/2.5/weather?q=Chicago&appid=' + appId;
+// var weatherApiUrl = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=' + appId;
+
+$(document).ready(function () {
+  console.log("ready!");
 
   $('#city-name').text('this is city name');
   $('#current-temp').text('this is current temp');
@@ -11,8 +13,8 @@ $( document ).ready(function() {
 
   var storeData = 'Nothing';
 
-  $('.show-me-weather').click(function(){
-    $.getJSON(weatherApiUrl, function( cityTempData ) {
+  $('.show-me-weather').click(function () {
+    $.getJSON(weatherApiUrl, function (cityTempData) {
       // cityTempData is the json object
       console.log('2) output the api data here', cityTempData);
       $('#city-name').text(cityTempData.name);
